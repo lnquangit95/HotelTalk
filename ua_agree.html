@@ -1,11 +1,11 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html><head>
 <title>Welcome</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta http-equiv="pragma" content="no-cache">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link id="ua_image_id" rel="shortcut icon" href="images/logo.ico" type="image/x-icon">
-<link id="ua_css_id" rel="stylesheet" media="all" type="text/css" href="ua.css">
+<link id="ua_css_id" rel="stylesheet" media="all" type="text/css" href="ua.css?v=200724200642">
 <script language="JavaScript">
 	var mp_idx = "$M";
 	var path = "$Z";
@@ -15,13 +15,13 @@
 	function css_rewrite(){
 		var css = document.getElementById("ua_css_id");
 		var image = document.getElementById("ua_image_id");
-		var css_filename	= path + "/ua.css";
+		var css_filename	= path + "/ua.css?v=200724200642";
 		var image_filename	= path + "/images/logo.ico";
 		if (url.href.indexOf("file:///") == -1){
 			css.href = css_filename;
 			image.href = image_filename;
 		}else{
-			css.href = "ua.css";
+			css.href = "ua.css?v=200724200642";
 			image.href = "images/logo.ico";
 		}
 	}
@@ -81,17 +81,21 @@
 </script>
 </head>
 <body class="bg" onload="initTask();">
- 
-	<div class="wrapper" >
-	
+<div class="wrapper" >
 	<div class="content">
-		
 		<div id="form_wrapper" class="form_wrapper">
-			
 			<form class="loginHotel activeHotel" method="post" action="" name="form">
 				<div class="hloginTop">
 					<div class="hlogo"></div>
 				</div>
+					<div class="Titletextword">		
+							<marquee width="100%" bgcolor="transparent" scrollamount="4">
+								<span style="color:orange;">
+									<!--RUNNING TEXT-->
+										<strong>Welcome to Golf Valley Da Lat Hotel & Restaurant</strong>
+								</span>
+							</marquee>
+					</div>
 					<div>
 				<table width="320" border="0" align="center" cellpadding="0" cellspacing="0">
 				  <tr>
