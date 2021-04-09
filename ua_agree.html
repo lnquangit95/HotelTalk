@@ -1,0 +1,135 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html><head>
+<title>Welcome</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="pragma" content="no-cache">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link id="ua_image_id" rel="shortcut icon" href="images/logo.ico" type="image/x-icon">
+<link id="ua_css_id" rel="stylesheet" media="all" type="text/css" href="ua.css">
+<script language="JavaScript">
+	var mp_idx = "$M";
+	var path = "$Z";
+	var en_data_collect = "$D";
+	var url = window.location;
+	/* Please do not rewrite this function */
+	function css_rewrite(){
+		var css = document.getElementById("ua_css_id");
+		var image = document.getElementById("ua_image_id");
+		var css_filename	= path + "/ua.css";
+		var image_filename	= path + "/images/logo.ico";
+		if (url.href.indexOf("file:///") == -1){
+			css.href = css_filename;
+			image.href = image_filename;
+		}else{
+			css.href = "ua.css";
+			image.href = "images/logo.ico";
+		}
+	}
+	css_rewrite();
+	/* Please do not rewrite this function */
+	function initTask(){
+		document.getElementById("uamask").style.display = (mp_idx=="preview") ?  "block" : "none";
+		document.form.action = "/agree.cgi";
+		document.getElementById("mp_idx").value = mp_idx;
+
+		if(en_data_collect=='1'){
+			document.getElementById("field1").className = " error";
+			document.getElementById("field2").className = " error";
+			document.getElementById("field3").className = " error";
+			document.getElementById("field4").className = " error";
+		}
+	}
+	/* close window function */
+	function doClose(){
+		var r=confirm("The window will close.");
+		if (r == true){
+			window.opener=null;
+			window.open("","_self");
+			window.close();
+		}
+	}
+	function sendSubmit(){
+		var f1 = document.getElementById("field1").value;
+		var f2 = document.getElementById("field2").value;
+		var f3 = document.getElementById("field3").value;
+		var f4 = document.getElementById("field4").value;
+		if((f1=="" || f2=="" || f3=="" || f4=="")&& (en_data_collect=='1')){
+			alert("Please fill in personal information");
+		}else{
+			var field = 5; /*If you want to change the number of columns, please rewrite field value.*/ 
+			var lable = "";
+			for(var i=1; i <= field; i++){
+				var table = document.getElementById("td"+i);
+				lable += table.innerHTML + "!@#";
+			}
+			/*get label value*/
+			document.form.fieldname.value = lable;
+			document.form.submit();
+		}
+	}			
+	function chk_fields(fname){
+		if(en_data_collect=='1'){
+			var fvalue = document.getElementById(fname).value;
+			
+			if(fvalue != ''){
+				document.getElementById(fname).className = document.getElementById(fname).className.replace( /(?:^|\s)error(?!\S)/g , '' )
+			}else{
+				document.getElementById(fname).className = " error";
+			}
+		}
+	}
+</script>
+</head>
+<body class="bg" onload="initTask();">
+ 
+	<div class="wrapper" >
+	
+	<div class="content">
+		
+		<div id="form_wrapper" class="form_wrapper">
+			
+			<form class="loginHotel activeHotel" method="post" action="" name="form">
+				<div class="hloginTop">
+					<div class="hlogo"></div>
+				</div>
+					<div>
+				<table width="320" border="0" align="center" cellpadding="0" cellspacing="0">
+				  <tr>
+					<td id="td1">Name:</td>
+					<td colspan="2"><input type="text" name="field1" id="field1" onkeyup="chk_fields('field1')"/></td>
+				  </tr>
+				  <tr>
+					<td id="td2">Phone:</td>
+					<td colspan="2"><input type="text" name="field2" id="field2" onkeyup="chk_fields('field2')"/></td>
+				  </tr>
+				  <tr>
+					<td id="td3">Address:</td>
+					<td colspan="2"><input type="text" name="field3" id="field3" onkeyup="chk_fields('field3')"/></td>
+				  </tr>
+				  <tr>
+					<td id="td4">E-mail:</td>
+					<td colspan="2"><input type="text" name="field4" id="field4" onkeyup="chk_fields('field4')"/></td>
+				  </tr>
+				  <tr>
+					<td id="td5">Other:</td>
+					<td colspan="2"><input type="text" name="field5" id="field5"/></td>
+					<!--<td >(Optional)</td>-->
+				  </tr>
+				</table>
+				<input type="hidden" name="fieldname" value=""/>
+				<input type="hidden" name="agree" value="Agree"/>
+				<input type="hidden" id="mp_idx" name="mp_idx" value=""/>
+				</div>
+				<div class="bottom">
+					<input type="button" name="disagree" onclick="doClose();" value="  Disagree  "  class="buttonBtoom">
+					<input type="button" name="btn" value="  Agree  "  onclick="sendSubmit();" class="buttonBtoom">
+					<div class="clear"></div>
+				</div>
+			</form>
+		</div>
+	<div class="clear"></div>
+	</div>
+</div>
+<div id="uamask" class="uamask"></div>
+</body>
+</html>

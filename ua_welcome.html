@@ -1,0 +1,66 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html><head>
+<title>Welcome</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="pragma" content="no-cache">
+<link id="ua_image_id" rel="shortcut icon" href="images/logo.ico" type="image/x-icon">
+<link id="ua_css_id" rel="stylesheet" media="all" type="text/css" href="ua.css?v=200724200642">
+<script language="JavaScript">
+	var url = window.location;
+	var path = "$Z";
+	var mp_idx = "$M";
+	/* Please do not rewrite this function */
+	function css_rewrite(){
+		var css = document.getElementById("ua_css_id");
+		var image = document.getElementById("ua_image_id");
+		var css_filename	= path + "/ua.css?v=200724200642";
+		var image_filename	= path + "/images/logo.ico";
+		if (url.href.indexOf("file:///") == -1){
+			css.href = css_filename;
+			image.href = image_filename;
+		}else{
+			css.href = "ua.css?v=200724200642";
+			image.href = "images/logo.ico";
+		}
+	}
+	css_rewrite();
+	/* Please do not rewrite this function */
+	function initTask(){
+		document.getElementById("uamask").style.display = (mp_idx=="preview") ?  "block" : "none";
+	}
+	/* open advertisement function, advertise=0 is not enable advertisement */
+	/* Please do not rewrite this function */
+	function advertisement(){
+		var url = "$A";
+		if(url != 0 && mp_idx!="preview"){
+			window.open(url, "_blank");
+		}
+	}
+</script>
+</head>
+<body class="bg" onload="initTask(); advertisement();">
+<div class="wrapper">
+  <div class="content">
+    <div id="form_wrapper" class="form_wrapper">
+     <form class="loginHotel activeHotel">
+        <div class="hloginTop">
+          <div class="hlogo"></div>
+        </div>
+        <div class="Titletextword" >Welcome</div>
+			<div>
+				<label>Your Internet is safer, faster, and smarter. Thank you!</label>
+			</div>
+        <div>
+          <div class="hconnection"></div>
+        </div>
+        <div class="bottom">
+          <div class="clear"></div>
+        </div>
+	</form>
+    </div>
+    <div class="clear"></div>
+  </div>
+</div>
+<div id="uamask" class="uamask"></div>
+</body>
+</html>

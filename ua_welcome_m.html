@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Welcome</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+	<meta charset="utf-8">
+    <meta http-equiv="pragma" content="no-cache">
+    <link href="$Z/css_m/jquery.mobile-1.4.2.min.css?v=200724200642" rel="stylesheet" type="text/css">
+    <link href="$Z/css_m/style.css?v=200724200642" rel="stylesheet" type="text/css">
+    <link href="$Z/css_m/theme.css?v=200724200642" rel="stylesheet" type="text/css">
+	<script src="$Z/js/jquery-1.8.2.min.js?v=200724200642"></script>
+    <script src="$Z/js/jquery.mobile-1.4.2.min.js?v=200724200642"></script>
+<script language="JavaScript">
+	var mp_idx = "$M";
+	function initTask(){
+		if(mp_idx=="preview"){
+			$('#uamask').css('display','block');
+		}else{
+			$('#uamask').css('display','none');
+		}
+	}
+	/*firefox default setting is false
+	function doClose(){
+		window.opener=null;   
+		window.open("","_self");
+		window.close();
+	}*/
+	function advertisement(){
+		var url = "$A";
+		if(url != 0 && mp_idx!="preview"){
+			window.open(url, "_blank");
+		}
+	}
+</script>
+</head>
+<body onload="initTask();advertisement();">
+<div data-role="page" class="zyxel zyxel_style1" id="agree_welcome">
+
+  	<div data-role="header" class="zyxel_header">
+		<h1><img src="$Z/images_m/logo_70X20_white.png?v=200724200642" width="70" height="20" alt="logo"></h1>
+	</div><!-- /header -->
+	
+	<div role="main" class="ui-content">
+		<div class="zyxel_content">
+            <h2 class="zyxel_title">Welcome</h2>
+            <div class="zyxel_blue_line"></div>
+            <div class="pic_style"><img src="$Z/images_m/icon_welcome1.png?v=200724200642" width="100" height="100"></div>
+            
+            <p class="zyxel_p_style9_info_green">Welcome</p>
+            <p class="zyxel_p_style8">Your internet us safer,faster,and smarter because you're using portal. Thank you.</p>
+            
+	  		<div class="center_to_right_rwd">
+            	<!--<button type="button" onclick="doClose();" class="ui-btn ui-corner-all ui-btn-inline ui-btn-d btn_inline_style ui-btn-icon-left ui-icon-check ui-nodisc-icon">OK</button>-->
+           	</div>
+   		</div><!-- /zyxel_content -->
+	</div><!-- /content -->
+	<div id="uamask" class="uamask"></div>
+</div><!-- /page -->
+</body>
+</html>
